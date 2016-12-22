@@ -1,11 +1,17 @@
 package com.piser.apps;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+
+import com.piser.apps.AppOne.AppOne;
 import android.widget.TextView;
 import java.util.*;
 
@@ -14,10 +20,14 @@ public class ActivitySelector extends AppCompatActivity implements SensorEventLi
     private TextView salida,salida0,salida1,salida2,salida3,salida4;
 
 
+    private FrameLayout app_one;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selector);
+
+        app_one = (FrameLayout) findViewById(R.id.app_one);
 
         salida = (TextView) findViewById(R.id.salida);
         salida0 = (TextView) findViewById(R.id.salida0);
@@ -53,6 +63,22 @@ public class ActivitySelector extends AppCompatActivity implements SensorEventLi
             Sensor temperatureSensor = listaSensores.get(0);
             sensorManager.registerListener(this, temperatureSensor,
                     SensorManager.SENSOR_DELAY_UI);}
+    }
+
+    private void initActivity(Class activity) {
+        startActivity(new Intent(this, activity));
+    }
+
+    private View.OnClickListener appOneListener() {
+        /**
+         * Get the action for first button
+         */
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initActivity(AppOne.class);
+            }
+        };
 
     }
     private void log(String string,int id) {
