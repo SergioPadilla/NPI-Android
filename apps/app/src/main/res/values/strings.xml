@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">apps</string>
-    <string name="app_one">nosetodavia</string>
+    <string name="app_one">GPS</string>
+    <string name="app_two">GPS MAPS</string>
+    <string name="title_activity_app_two">Map</string>
 </resources>

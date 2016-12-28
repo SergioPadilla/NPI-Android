@@ -183,6 +183,7 @@ public class GPSTracker extends Service implements LocationListener {
     public void stopUsingGPS() {
         if (locationManager != null) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Log.e("PERMISSIONS", "NO PERMISSIONS");
                 return;
             }
             locationManager.removeUpdates(GPSTracker.this);

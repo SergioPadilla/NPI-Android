@@ -10,7 +10,7 @@ import com.piser.apps.AppOne.AppOne;
 
 public class ActivitySelector extends AppCompatActivity {
 
-    private FrameLayout app_one;
+    private FrameLayout app_one, app_two;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,22 +18,24 @@ public class ActivitySelector extends AppCompatActivity {
         setContentView(R.layout.activity_selector);
 
         app_one = (FrameLayout) findViewById(R.id.app_one);
+        app_two = (FrameLayout) findViewById(R.id.app_two);
 
-        app_one.setOnClickListener(appOneListener());
+        app_one.setOnClickListener(appOneListener(AppOne.class));
+        app_two.setOnClickListener(appOneListener(AppTwo.class));
     }
 
     private void initActivity(Class activity) {
         startActivity(new Intent(this, activity));
     }
 
-    private View.OnClickListener appOneListener() {
+    private View.OnClickListener appOneListener(final Class activity) {
         /**
          * Get the action for first button
          */
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initActivity(AppOne.class);
+                initActivity(activity);
             }
         };
     }
