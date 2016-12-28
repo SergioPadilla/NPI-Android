@@ -1,6 +1,5 @@
 package com.piser.apps;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ public class ActivitySelector extends AppCompatActivity {
 
         app_one = (FrameLayout) findViewById(R.id.app_one);
 
-
+        app_one.setOnClickListener(appOneListener());
     }
 
     private void initActivity(Class activity) {
