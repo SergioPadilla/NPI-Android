@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.piser.apps.AppOne.AppOne;
+import com.piser.apps.AppTwo.AppTwo;
 
 public class ActivitySelector extends AppCompatActivity {
 

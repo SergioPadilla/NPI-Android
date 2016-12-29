@@ -91,7 +91,8 @@ public class AppTwo extends FragmentActivity implements
             LatLng position = new LatLng(latitude,longitude);
             Toast.makeText(getApplicationContext(),
                     "Latitude: "+latitude+"\nLongitude: "+longitude, Toast.LENGTH_LONG).show();
-            mMap.addMarker(new MarkerOptions().position(position).title("My position"));
+            if(mMap != null)
+                mMap.addMarker(new MarkerOptions().position(position).title("My position"));
         }
     }
 
