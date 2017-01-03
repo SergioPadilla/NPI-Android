@@ -42,6 +42,7 @@
 
         <activity
             android:name=".AppThree.AppThree"
+            android:screenOrientation="portrait"
             android:label="Brujula"></activity>
     </application>
 
