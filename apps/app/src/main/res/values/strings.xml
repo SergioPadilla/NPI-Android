@@ -2,5 +2,9 @@
     <string name="app_name">apps</string>
     <string name="app_one">GPS</string>
     <string name="app_two">GPS MAPS</string>
+    <string name="app_three">Brujula</string>
+    <string name="action_settings">Settings</string>
+    <string name="compass_dial">Compass Dial</string>
+    <string name="compass_hands">Compass Hands</string>
     <string name="title_activity_app_two">Map</string>
 </resources>

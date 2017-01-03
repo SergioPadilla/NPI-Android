@@ -8,10 +8,11 @@ import android.widget.FrameLayout;
 
 import com.piser.apps.AppOne.AppOne;
 import com.piser.apps.AppTwo.AppTwo;
+import com.piser.apps.AppThree.AppThree;
 
 public class ActivitySelector extends AppCompatActivity {
 
-    private FrameLayout app_one, app_two;
+    private FrameLayout app_one, app_two, app_three;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,12 @@ public class ActivitySelector extends AppCompatActivity {
 
         app_one = (FrameLayout) findViewById(R.id.app_one);
         app_two = (FrameLayout) findViewById(R.id.app_two);
+        app_three = (FrameLayout) findViewById(R.id.app_three);
 
         app_one.setOnClickListener(appOneListener(AppOne.class));
         app_two.setOnClickListener(appOneListener(AppTwo.class));
+        app_three.setOnClickListener(appOneListener(AppThree.class));
+
     }
 
     private void initActivity(Class activity) {
