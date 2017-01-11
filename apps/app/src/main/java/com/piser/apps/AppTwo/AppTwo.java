@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.piser.apps.R;
@@ -61,11 +62,11 @@ public class AppTwo extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        UiSettings settings = mMap.getUiSettings();
+        settings.setCompassEnabled(true);
+        settings.setAllGesturesEnabled(true);
+        settings.setMyLocationButtonEnabled(true);
+        settings.setZoomControlsEnabled(true);
     }
 
     protected void onStart() {
@@ -91,8 +92,13 @@ public class AppTwo extends FragmentActivity implements
             LatLng position = new LatLng(latitude,longitude);
             Toast.makeText(getApplicationContext(),
                     "Latitude: "+latitude+"\nLongitude: "+longitude, Toast.LENGTH_LONG).show();
-            if(mMap != null)
+            if(mMap != null) {
                 mMap.addMarker(new MarkerOptions().position(position).title("My position"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 14));
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Error Location", Toast.LENGTH_LONG).show();
         }
     }
 
