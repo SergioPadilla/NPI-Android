@@ -73,7 +73,7 @@ public class ActivitySelector extends AppCompatActivity {
                 };
                 vibrator.vibrate(pattern, -1); // no repite patron
                 grtv.setText("Has deslizado " + fingers + " dedos  hacia abajo " + gestureDuration + " milisegundos " );
-                /*
+
                 if (fingers==1) {
                     mv.setBackgroundResource(R.drawable.board_down);
                 }
@@ -86,7 +86,7 @@ public class ActivitySelector extends AppCompatActivity {
                 else if (fingers==4) {
                     mv.setBackgroundResource(R.drawable.board_down_4);
                 }
-                */
+
                 return false;
             }
 
@@ -106,9 +106,9 @@ public class ActivitySelector extends AppCompatActivity {
                 else if (fingers==3) {
                     mv.setBackgroundResource(R.drawable.board_left_3);
                 }
-                //else if (fingers==4) {
-                //    mv.setBackgroundResource(R.drawable.board_right_4);
-                //}
+                else if (fingers==4) {
+                    mv.setBackgroundResource(R.drawable.board_left_4);
+                }
                 return false;
             }
 
@@ -141,6 +141,7 @@ public class ActivitySelector extends AppCompatActivity {
                 };
                 vibrator.vibrate(pattern, -1); // no repite patron
                 grtv.setText("Has pellizcado con " + fingers + " dedos " + gestureDuration + " milisegundos " );
+                mv.setBackgroundResource(R.drawable.pellizco);
                 return false;
             }
 
@@ -151,6 +152,7 @@ public class ActivitySelector extends AppCompatActivity {
                 };
                 vibrator.vibrate(pattern, -1); // no repite patron
                 grtv.setText("Has  estirado " + fingers + "dedos"  + gestureDuration + " milisegundos ");
+                mv.setBackgroundResource(R.drawable.estirado);
                 return false;
             }
 
@@ -162,7 +164,7 @@ public class ActivitySelector extends AppCompatActivity {
                         0,50,20,50
                 };
                 vibrator.vibrate(pattern, -1); // no repite patron
-
+                mv.setBackgroundResource(R.drawable.doubleclick);
 
                 return false;
             }
