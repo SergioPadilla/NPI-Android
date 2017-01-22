@@ -5,9 +5,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -39,12 +38,12 @@
 
         <activity
             android:name=".AppTwo.AppTwo"
-            android:label="@string/title_activity_app_two"></activity>
-
+            android:label="@string/title_activity_app_two" />
         <activity
             android:name=".AppThree.AppThree"
-            android:screenOrientation="portrait"
-            android:label="Brujula"></activity>
+            android:label="Brujula"
+            android:screenOrientation="portrait" />
+        <activity android:name=".AppFour.AppFour"></activity>
     </application>
 
 </manifest>

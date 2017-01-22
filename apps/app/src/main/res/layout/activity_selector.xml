@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_selector"
     android:layout_width="match_parent"
@@ -46,41 +45,46 @@
             android:layout_gravity="center"
             android:textColor="#FFF"
             android:textStyle="bold"/>
-
     </FrameLayout>
+
     <FrameLayout
-    android:id="@+id/app_three"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:layout_margin="16dp">
-
-    <View
+        android:id="@+id/app_three"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_button" />
+        android:layout_height="60dp"
+        android:layout_margin="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BRUJULA"
-        android:layout_gravity="center"
-        android:textColor="#FFF"
-        android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_button" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_three"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textStyle="bold"/>
     </FrameLayout>
 
-    <ImageView
+    <FrameLayout
+        android:id="@+id/app_four"
         android:layout_width="match_parent"
-        android:id="@+id/mv"
-        android:layout_height="245dp"
-        android:background="@drawable/board" />
+        android:layout_height="60dp"
+        android:layout_margin="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:inputType="textPersonName"
-        android:text="algo"
-        android:ems="10"
-        android:id="@+id/grtv" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_four"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textStyle="bold"/>
+    </FrameLayout>
 
 </LinearLayout>

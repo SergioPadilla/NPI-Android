@@ -1,5 +1,6 @@
 package com.piser.apps.AppThree;
-import android.support.v7.app.ActionBarActivity;
+
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.util.Log;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 import com.piser.apps.R;
 
 
-public class AppThree extends ActionBarActivity {
+public class AppThree extends Activity {
 
     private static final String TAG = "CompassActivity";
 
@@ -48,7 +49,4 @@ public class AppThree extends ActionBarActivity {
         super.onResume();
         compass.start();
     }
-
-
-
 }
