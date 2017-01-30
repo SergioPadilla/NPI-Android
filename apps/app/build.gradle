@@ -29,4 +29,12 @@ dependencies {
     compile 'com.google.android.gms:play-services:10.0.1'
     testCompile 'junit:junit:4.12'
     compile project(':libSFG-1.1-release')
+
+    compile (name: 'wikitudesdk', ext:'aar')
+}
+
+repositories {
+    flatDir{
+        dirs 'libs'
+    }
 }
