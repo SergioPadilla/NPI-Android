@@ -430,10 +430,13 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 
         final JSONArray pois = new JSONArray();
 
-        pois.put(getPOI(0, "Alhambra", "Maravilla del mundo", userLocation, 37.1778721, -3.5946198));
-        pois.put(getPOI(1, "Alhambra", "Maravilla del mundo", userLocation, 82.4613218, 89.316832));
-        pois.put(getPOI(2, "Alhambra", "Maravilla del mundo", userLocation, -3.4621413, 3.5946198));
-        pois.put(getPOI(3, "Alhambra", "Maravilla del mundo", userLocation, -45.68132, -65.6543135));
+        pois.put(getPOI(0, "Alhambra", "", userLocation, 37.1778721, -3.5946198));
+        pois.put(getPOI(1, "Facultad", "de Ciencias", userLocation, 37.179856, -3.609743));
+        pois.put(getPOI(2, "Parque de", "las Ciencias", userLocation, 37.163018, -3.605773));
+        pois.put(getPOI(3, "Córdoba", "Ciudad", userLocation, 37.888497, -4.789778));
+        pois.put(getPOI(5, "Albaicin", "Barrio", userLocation, 37.189636, -3.579691));
+        pois.put(getPOI(6, "Motril", "Pueblo", userLocation, 36.718911, -3.516936));
+        pois.put(getPOI(7, "KM 0", "Puerta del Sol", userLocation, 40.416864, -3.704195));
 
         return pois;
     }
