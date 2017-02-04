@@ -1,6 +1,8 @@
 package com.piser.apps;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,9 +21,15 @@ public class ActivitySelector extends AppCompatActivity {
     private FrameLayout app_three;
     private FrameLayout app_four;
     private FrameLayout app_five;
+    private MediaPlayer mMediaPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mMediaPlayer = MediaPlayer.create(this, R.raw.intro);
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mMediaPlayer.setLooping(true);
+        mMediaPlayer.start();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selector);
 
@@ -52,5 +60,14 @@ public class ActivitySelector extends AppCompatActivity {
                 initActivity(activity);
             }
         };
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mMediaPlayer != null){
+            mMediaPlayer.stop();
+            mMediaPlayer.release();
+        }
     }
 }
