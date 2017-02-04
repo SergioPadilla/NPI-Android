@@ -21,6 +21,25 @@ También cuando google nos devuelve la posición del usuario, además de marcarl
 
 En esta aplicación hemos insertado una barra encima del mapa, que nos permite introducir manualmente unas coordenadas (latitud y longitud) y un botón, al clickar sobre este botón se dibuja en el mapa una línea que une la posición actual con la posición introducida.
 
+##Aplicación 3
+En esta aplicación hacemos uso de las modalidades de interacción **Moviemiento del telefono** mediante el uso del sensor ***Acelerómetro*** y **Proactividad basada en localización** con el sensor ***Brújula (Magnético).***
+
+Dicha información se traduce en un giro adecuado de una imagen de una aguja superpuesta sobre una imagen fija de una brújula, con el fin de simular una brújula, haciendo asi uso de la modalidad de interacción **Visual en pantalla** mediante el actuador ***Mostrar información en pantalla*** que nos muestra ademas los grados que tiene la orientacion de nuestro movil respecto al norte.
+
+Usamos  el acelerómetro y el sensor magnético, mediante las librerias de Hardware que nos proporciona el SDK de Android como *SensorManager*, para conocer la posición en la que se encuentra el dispositivo respecto al norte magnético.
+
+Ambos sensores nos devuelven vectores tridimensionales, con los valores captados por el sensor, en el caso del sensor de orientacion nos devuelve los angulos de navegacion "Azimuth" , "pitch" y "roll" que respectivamente giran sobre el eje Z, eje X y eje Y	.
+ 
+ En el caso del sensor magnético nos devuelve la fuerza del campo electromacnético sobre los ejes X, Y y Z en las posiciones 0,1 y 2 respectivamente. 
+A continuacion las componemos y nos quedamos solamente con la primera componente para girar convenientemente la flecha de la brújula .
+
+##Aplicación 4
+En esta aplicación hacemos uso de las modalidades de interacción **Interacción multitáctil** mediante el uso de ***Patrones sobre la pantalla*** y ***Pulsaciones sobre la pantalla de más de un dedo***
+
+Dicha información se refleja en una imagen de una pizarra, en la que realizaremos diferentes gestos y se dibujará dicho gesto en ella, acompañado de diferentes vibraciones acordes a los gestos haciendo así uso de la modalidad de interacción **Visual en pantalla** mediante el actuador ***Mostrar información en pantalla*** y la modalidad de interacción **Vibración**
+
+Para reconocer los diferentes gestos multitactiles hemos usado la librería [SimpleFingerGestures](https://github.com/championswimmer/SimpleFingerGestures_Android_Library)
+
 ## Aplicación 5
 En esta aplicación hemos hecho uso de la modalidad de interacción **Realidad aumentada**.
 
