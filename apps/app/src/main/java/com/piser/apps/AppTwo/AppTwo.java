@@ -9,6 +9,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -23,6 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.piser.apps.R;
 
 public class AppTwo extends FragmentActivity implements
@@ -31,6 +35,10 @@ public class AppTwo extends FragmentActivity implements
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
     private Location lastLocation;
+
+    private EditText latInput;
+    private EditText lonInput;
+    private Button go;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,37 @@ public class AppTwo extends FragmentActivity implements
                     .addApi(LocationServices.API)
                     .build();
         }
+
+        latInput = (EditText) findViewById(R.id.input_lat);
+        lonInput = (EditText) findViewById(R.id.input_lon);
+        go = (Button) findViewById(R.id.go_btn);
+
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String lat_string = latInput.getText().toString();
+                String lon_string = lonInput.getText().toString();
+                if(lat_string.isEmpty() || lon_string.isEmpty())
+                    Toast.makeText(getApplicationContext(), "Los campos tienen que estar completos", Toast.LENGTH_LONG).show();
+                else {
+                    Double lat = Double.parseDouble(lat_string);
+                    Double lon = Double.parseDouble(lon_string);
+                    LatLng position = new LatLng(lat,lon);
+                    if(mMap != null && lastLocation != null) {
+                        double latitude = lastLocation.getLatitude();
+                        double longitude = lastLocation.getLongitude();
+                        LatLng myposition = new LatLng(latitude,longitude);
+                        mMap.addPolyline(new PolylineOptions().geodesic(true)
+                                .add(myposition)  // Mylocation
+                                .add(position)    // new position
+                        );
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "No se puede acceder al mapa", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
     }
 
     /**
