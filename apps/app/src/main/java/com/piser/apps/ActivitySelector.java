@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Switch;
 
 import com.piser.apps.AppFive.AppFive;
 import com.piser.apps.AppFour.AppFour;
@@ -21,16 +22,19 @@ public class ActivitySelector extends AppCompatActivity {
     private FrameLayout app_three;
     private FrameLayout app_four;
     private FrameLayout app_five;
-    private MediaPlayer mMediaPlayer;
+    private Switch switchBtn;
 
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         mMediaPlayer = MediaPlayer.create(this, R.raw.intro);
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mMediaPlayer.setLooping(true);
         mMediaPlayer.start();
-        super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_selector);
 
         app_one = (FrameLayout) findViewById(R.id.app_one);
@@ -38,6 +42,7 @@ public class ActivitySelector extends AppCompatActivity {
         app_three = (FrameLayout) findViewById(R.id.app_three);
         app_four = (FrameLayout) findViewById(R.id.app_four);
         app_five = (FrameLayout) findViewById(R.id.app_five);
+        switchBtn = (Switch) findViewById(R.id.switch_btn);
 
         app_one.setOnClickListener(appOneListener(AppOne.class));
         app_two.setOnClickListener(appOneListener(AppTwo.class));
@@ -58,6 +63,9 @@ public class ActivitySelector extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 initActivity(activity);
+                if(switchBtn.isChecked()) {
+                    mMediaPlayer.pause();
+                }
             }
         };
     }
@@ -69,5 +77,11 @@ public class ActivitySelector extends AppCompatActivity {
             mMediaPlayer.stop();
             mMediaPlayer.release();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mMediaPlayer.start();
     }
 }

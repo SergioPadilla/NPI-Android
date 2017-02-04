@@ -107,4 +107,26 @@
             android:textStyle="bold"/>
     </FrameLayout>
 
+    <RelativeLayout
+        android:id="@+id/control_music"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp">
+
+        <Switch
+            android:id="@+id/switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:checked="false"/>
+
+        <TextView
+            android:layout_toStartOf="@+id/switch_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Si está activo, la música se para cuando se cambia de actividad"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
 </LinearLayout>
